@@ -96,6 +96,7 @@ kommen.
   - Umfangreiche Zeitplanung: Sehr detaillierte Steuerung, wann welche Kampagne läuft.
 
 
+---
 
 #### PiSignage (Open-Source Server Community Edition)
 
@@ -113,10 +114,50 @@ Nachteile:
 
   - Community-Support: Da es die kostenlose Variante des Herstellers ist, gibt es Updates und Fehlerbehebungen oft etwas verzögert über die GitHub-Community.
     
+#### Inbetriebnahme (Anthias)
+1.  Docker Desktop herunterladen
+2.  PiSignage Image auf der Website von PiSignage herunterladen
+3.  Erstelle einen neuen Ordner: docker-pisignage-test
+4.  Erstelle einen Textdatei mit Namens: docker-compose.yml mit diesem Inhalt:
+      ```
+      version: '3'
+      
+      services:
+        # Das Hauptprogramm
+        pisignage-server:
+          image: pisignage/pisignage-server
+          container_name: pisignage-server
+          ports:
+            - "3000:3000"
+          volumes:
+            - pisignage-data:/home/pi/data
+          depends_on:
+            - mongo
+          environment:
+            - MONGO_URL=mongodb://mongo:27017/pisignage
+      
+        # Die benötigte Datenbank
+        mongo:
+          image: mongo:4.4
+          container_name: pisignage-mongo
+          volumes:
+            - mongo-data:/data/db
+      
+      volumes:
+        pisignage-data:
+        mongo-data:
+      ```
+5. Öffne die Eingabeaufforderung:
+```
+cd "z.B  C:\Users\Alexander Hauser\Documents\Pisignage-Test"
+
+docker compose up -d
+```
+6. Der Server sieht man nun in Docker Desktop unter Containers
+7. Mit http://localhost:3000 kann sich auf das PiSignage Dashboard verbinden
 
 
-
-
+---
 
 
 
