@@ -7,7 +7,7 @@
 
 --- 
 
-## 1 Tag
+## Tag 1
 Geeignete Open-Source-Lösungen recherchieren, die als Alternative zu Screenly oder Yodeck in Frage
 kommen. 
 
