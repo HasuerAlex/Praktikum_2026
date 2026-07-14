@@ -7,9 +7,14 @@
 
 --- 
 
-## Tag 1
-Geeignete Open-Source-Lösungen recherchieren, die als Alternative zu Screenly oder Yodeck in Frage
-kommen. 
+### Aufgabenstellung 
+- Geeignete Open-Source-Lösungen recherchieren, die als Alternative zu Screenly oder Yodeck in Frage 
+kommen.
+- Test auf Raspberry Pi oder vergleichbarer IoT-Hardware vorbereiten und die Grundfunktionen prüfen. 
+- Wichtige Punkte dokumentieren: Installation, Fernverwaltung, Stabilität, Content-Ausspielung und 
+  Wartbarkeit. 
+- Am Ende eine kurze Empfehlung abgeben, welche Lösung für einen Pilotbetrieb am sinnvollsten wäre. 
+ 
 
 ### Anthias (ehemals Screenly OSE)
 
