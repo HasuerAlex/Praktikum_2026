@@ -52,14 +52,6 @@ kommen.
 
 #### Evaluierung, Troubleshooting und praktische Testergebnisse (Anthias)
 
-##### Hardware-Troubleshooting (Stromversorgung & Thermik)
-- Fehlerbeschreibung (Boot-Loop): 
-  Nach dem erfolgreichen Flashen des Images startete der Raspberry Pi 3 nach jeweils ca. 1–2 Minuten Betriebszeit kontinuierlich neu. Die Weboberfläche zur Fernverwaltung war jeweils nur für wenige Sekunden erreichbar.
-
-- Ursachenanalyse (Netzteil): Für den Erstaufbau wurde testweise ein älteres, kompaktes iPhone-Netzteil verwendet. Dieses liefert spezifikationsgemäß lediglich eine Leistung von 1A. Unter der Last des initialisierenden Digital-Signage-Betriebssystems benötigt der Raspberry Pi 3 jedoch       eine Stromstärke von mindestens 2,5A. Die Überlastung führte zu einem massiven Spannungsabfall (Under-voltage) und triggerte den automatischen Neustart aus Selbstschutz.
-
-- Ursachenanalyse (Thermik): Ergänzend wurde festgestellt, dass Anthias die CPU beim Rendern des Dashboards direkt nach dem Booten stark beansprucht. Ohne passiven Kühlkörper stieg die Temperatur auf der Platine rasch an, was das Risiko von Thermal Throttling erhöhte.Fehlerbehebung: Das     unzureichende Netzteil wurde durch eine adäquate, stabile Stromquelle ($5\\text{V} / 2,5\\text{A}$) mit Micro-USB-Anschluss ausgetauscht. Zudem wurden alle unnötigen USB-Peripheriegeräte (Maus/Tastatur) getrennt, um den Stromverbrauch zu minimieren. Nach diesen Modifikationen lief der     Minicomputer dauerhaft stabil.
-
 ##### Zeitaufwand (Inbetriebnahme)
 - Kriterium: Messung der benötigten Zeitspanne vom Flashen des Betriebssystem-Images bis zur ersten erfolgreichen Bildausgabe auf dem angeschlossenen Monitor.
 
@@ -119,7 +111,7 @@ Nachteile:
 
   - Community-Support: Da es die kostenlose Variante des Herstellers ist, gibt es Updates und Fehlerbehebungen oft etwas verzögert über die GitHub-Community.
     
-#### Inbetriebnahme (Anthias)
+#### Inbetriebnahme (PiSignage)
 1.  Docker Desktop herunterladen
 2.  PiSignage Image auf der Website von PiSignage herunterladen
 3.  Erstelle einen neuen Ordner: docker-pisignage-test
@@ -161,8 +153,36 @@ docker compose up -d
 6. Der Server sieht man nun in Docker Desktop unter Containers
 7. Mit http://localhost:3000 kann sich auf das PiSignage Dashboard verbinden
 
-
 ---
+
+### Probleme während des Praxis Test
+
+## Fehleranalyse und Problembehebung: Instabilitäten der Stromversorgung
+
+Im Rahmen meines Praktikumsprojekts zur Einrichtung eines Digital-Signage-Systems auf einem Raspberry Pi 3 (RPi3) traten kritische Probleme bei der Stromversorgung auf. Diese führten im Verlauf der Inbetriebnahme zu einem temporären Systemausfall. Im Folgenden dokumentiere ich die beobachteten Fehlerbilder, meine durchgeführten Schritte zur Fehlerdiagnose sowie die erarbeitete Lösung.
+
+### 1. Problembeschreibung und Fehlerbild
+
+* **Mein erster Versuch (Standard-Netzteil):** Das von mir primär verwendete Netzteil lieferte eine zu geringe elektrische Leistung. Der Raspberry Pi signalisierte dies sporadisch durch das gelbe Blitz-Symbol in der oberen rechten Ecke des Bildschirms (Under-Voltage-Warnung). Das System lief dadurch extrem instabil und stürzte wiederholt ab.
+* **Mein zweiter Versuch (Ersatznetzteil von zu Hause):** Um das Problem schnell zu lösen, habe ich ein privates Ersatznetzteil mitgebracht. Damit schien das System zunächst stabil zu laufen. Nach etwa drei Stunden kontinuierlichem Betrieb brach die Spannung dieses Netzteils unter Last jedoch ebenfalls komplett zusammen.
+* **Aktueller Systemstatus:** Nach diesem Spannungszusammenbruch bootet mein Raspberry Pi 3 überhaupt nicht mehr. Auf der Platine leuchtet dauerhaft nur noch die rote Power-LED (PWR). Die grüne Aktivitäts-LED (ACT) zeigt keinerlei Blinksignale und es wird kein Bildsignal mehr ausgegeben.
+
+### 2. Meine Maßnahmen
+
+* **Lastminimierung:** Ich habe sämtliche angeschlossenen Peripheriegeräte (Maus, Tastatur, USB-Sticks) abgezogen. Damit wollte ich sicherstellen, dass der Stromverbrauch beim Startvorgang so gering wie möglich gehalten wird.
+* **Software-Ausschluss:** Ich habe versucht, das System mit einer frischen Speicherkarte und einem schlanken Standard-Image (Raspberry Pi OS (Legacy, 32-Bit)) zu starten. Dadurch konnte ich ausschließen, dass eine fehlerhafte Konfiguration meiner Digital-Signage-Software das Booten blockiert. Leider schlug auch dieser Versuch fehl.
+* **Hardware-Prüfung:** Nach genauerer Recherche konnte ich ausschließen, dass die SoC-Komponenten (Prozessor) dauerhaft beschädigt wurden. Der Raspberry Pi befindet sich stattdessen in einer Schutzabschaltung.
+
+### 3. Ursache und geplante Lösung
+
+#### Hintergrund zur Hardware-Schutzschaltung:
+Der Raspberry Pi besitzt eine integrierte, selbstrücksetzende Schmelzsicherung (eine sogenannte **Polyfuse**). Bei einer gravierenden Unterspannung oder abrupten Spannungsspitzen (wie beim Einbrechen meines zweiten Netzteils) löst diese Sicherung aus, um die empfindlichen Hauptkomponenten vor dauerhaften Schäden zu schützen. Solange diese Sicherung aktiv ist, verbleibt der Pi in einem "Reset-Modus", bei dem ausschließlich die rote PWR-LED leuchtet.
+
+#### Geplante Maßnahme zur Behebung:
+Eine solche Polyfuse benötigt nach dem Auslösen ausreichend Zeit, um vollständig abzukühlen und ihren physikalischen Widerstand wieder auf den Normalwert zu senken. Ich habe den Raspberry Pi daher komplett von der Stromversorgung getrennt. Er verbleibt nun über Nacht im absolut stromlosen Zustand.
+
+Für die nächsten Projektschritte werde ich ein offizielles Raspberry-Pi-Netzteil organisieren, welches dauerhaft stabile **5,1 V und 2,5 A** liefert. Nach der nächtlichen Regenerationsphase der Sicherung werde ich den Bootvorgang mit diesem spezifikationsgerechten Netzteil erneut durchführen.
+
 
 
 
