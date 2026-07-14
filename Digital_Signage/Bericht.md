@@ -9,7 +9,7 @@
 
 ### Aufgabenstellung 
 - Geeignete Open-Source-Lösungen recherchieren, die als Alternative zu Screenly oder Yodeck in Frage 
-kommen.
+  kommen.
 - Test auf Raspberry Pi oder vergleichbarer IoT-Hardware vorbereiten und die Grundfunktionen prüfen. 
 - Wichtige Punkte dokumentieren: Installation, Fernverwaltung, Stabilität, Content-Ausspielung und 
   Wartbarkeit. 
@@ -92,6 +92,58 @@ kommen.
 
   - Umfangreiche Zeitplanung: Sehr detaillierte Steuerung, wann welche Kampagne läuft.
 
+#### Inbetriebnahme (Xibo)
+1.  Docker Desktop herunterladen
+2.  Erstelle einen neuen Ordner Namens: "xibo-server"
+3.  Erstelle in diesen Ordner einen neue Datei Namens: "docker-compose.yml", in diese schreibst du:
+```
+services:
+    mysql:
+        image: mysql:5.7
+        volumes:
+            - "./shared/db:/var/lib/mysql:Z"
+        env_file: config.env
+        restart: always
+
+    cms-xmr:
+        image: xibosignage/xibo-xmr:release-0.8
+        ports:
+            - "9505:9505"
+        restart: always
+        env_file: config.env
+
+    cms-web:
+        image: xibosignage/xibo-cms:latest
+        volumes:
+            - "./shared/cms/custom:/var/www/cms/custom:Z"
+            - "./shared/cms/web/theme/custom:/var/www/cms/web/theme/custom:Z"
+            - "./shared/cms/library:/var/www/cms/library:Z"
+            - "./shared/cms/web/userscripts:/var/www/cms/web/userscripts:Z"
+        ports:
+            - "8080:80"
+        restart: always
+        env_file: config.env
+        depends_on:
+            - mysql
+```
+4. Danach erstellst du eine neue Datei Namens: "config.env", in diese schreibst du:
+```
+MYSQL_DATABASE=cms
+MYSQL_USER=cms
+MYSQL_PASSWORD=praktikum2026
+MYSQL_ROOT_PASSWORD=praktikum2026
+MYSQL_HOST=mysql
+CMS_SERVER_NAME=localhost
+```
+5. Dann öffne deine Kommandozeile und gib ein:
+```
+cd "Pfad des Ordners"
+
+docker-compose up -d
+```
+6. Jetzt kann man Docker Desktop öffnen und man sieht den Xibo Server
+7. Öffne die Seite des Xibo-Servers jetzt mit "http://localhost:8080"
+8. Login ist: xibo_admin Passwort ist: password
 
 ---
 
