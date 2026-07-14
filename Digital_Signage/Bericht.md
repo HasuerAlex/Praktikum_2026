@@ -168,7 +168,7 @@ Nachteile:
 2.  PiSignage Image auf der Website von PiSignage herunterladen
 3.  Erstelle einen neuen Ordner: docker-pisignage-test
 4.  Erstelle einen Textdatei mit Namens: docker-compose.yml mit diesem Inhalt:
-      ```
+   ```
       version: '3'
       
       services:
@@ -195,7 +195,7 @@ Nachteile:
       volumes:
         pisignage-data:
         mongo-data:
-      ```
+      ``   
 5. Öffne die Eingabeaufforderung:
 ```
 cd "z.B  C:\Users\Alexander Hauser\Documents\Pisignage-Test"
