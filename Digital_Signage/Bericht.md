@@ -50,7 +50,7 @@
 9. Nun ist man auf dem Dashboard vom Pi und einstellen was gezeigt werden soll.
 
 
-#### Evaluierung, Troubleshooting und praktische Testergebnisse (Anthias)
+#### Praktische Testergebnisse (Anthias)
 
 ##### Zeitaufwand (Inbetriebnahme)
 - Kriterium: Messung der benötigten Zeitspanne vom Flashen des Betriebssystem-Images bis zur ersten erfolgreichen Bildausgabe auf dem angeschlossenen Monitor.
@@ -63,8 +63,8 @@
 
 - Kriterium: Überprüfung der Performance und Darstellungsqualität bei verschiedenen Medientypen (lokale Videodateien vs. webbasierte Inhalte).
 
-- Ergebnis: MP4-Videos: Lokale Videodateien im MP4-Format wurden in Full-HD-Auflösung ($1080\text{p}$) absolut flüssig und ohne sichtbare Framedrops oder Ruckler abgespielt. Die Hardware-Beschleunigung des Raspberry Pi 3 wird vom System optimal ausgenutzt.
-  - Webseiten (z. B. Firmen-Website): Die Darstellung von Web-Assets über die integrierte Kiosk-Browser-Engine verlief plattformkonform. Textinhalte, CSS-Layouts und statische Elemente wurden fehlerfrei gerendert.
+- Ergebnis: MP4-Videos: Lokale Videodateien im MP4-Format wurden in Full-HD-Auflösung ($1080\text{p}$) absolut flüssig und ohne sichtbare Framedrops oder Ruckler abgespielt.
+  - Webseiten: Die Darstellung von Web-Assets über die integrierte Kiosk-Browser-Engine verlief plattformkonform.
 
 - Einschränkung für die Praxis: Bei extrem JavaScript-lastigen Webseiten oder komplexen Animationen stieß die CPU des älteren Raspberry Pi 3 vereinzelt an ihre Leistungsgrenzen, was zu verzögerten Ladezeiten führte. Für Standard-Websites und Dashboards ist die Performance jedoch             vollkommen ausreichend.
 
@@ -149,61 +149,34 @@ docker-compose up -d
 
 #### PiSignage (Open-Source Server Community Edition)
 
-- Das Konzept: Wenn du den Server selbst auf einem eigenen System betreibst (z. B. via Docker), entfallen die Lizenzgebühren. Du nutzt das System somit völlig kostenlos.
+- Das Konzept: Es ist zu 100 % kostenlos. Die jeweiligen Screens werden über einen Zentralen Pc gesteuert.
 
 - Architektur: Ähnlich wie Xibo zentralisiert, aber speziell auf den Raspberry Pi und dessen Hardware-Eigenschaften zugeschnitten.
 
 - Vorteile:
 
-  - Zentrales Management gratis: Bietet eine zentrale Verwaltung für mehrere Pis, ohne Geld zu kosten (solange du den Server selbst hostest).
+  - Zentrales Management gratis: Bietet eine zentrale Verwaltung für mehrere Pis, ohne Geld zu kosten.
 
   - Gute Pi-Optimierung: Unterstützt native Pi-Features wie CEC (Bildschirm über das HDMI-Kabel automatisch an-/ausschalten).
 
 Nachteile:
 
-  - Community-Support: Da es die kostenlose Variante des Herstellers ist, gibt es Updates und Fehlerbehebungen oft etwas verzögert über die GitHub-Community.
+ 
     
 #### Inbetriebnahme (PiSignage)
 1.  Docker Desktop herunterladen
 2.  PiSignage Image auf der Website von PiSignage herunterladen
-3.  Erstelle einen neuen Ordner: docker-pisignage-test
-4.  Erstelle einen Textdatei mit Namens: docker-compose.yml mit diesem Inhalt:
-   ```
-      version: '3'
-      
-      services:
-        # Das Hauptprogramm
-        pisignage-server:
-          image: pisignage/pisignage-server
-          container_name: pisignage-server
-          ports:
-            - "3000:3000"
-          volumes:
-            - pisignage-data:/home/pi/data
-          depends_on:
-            - mongo
-          environment:
-            - MONGO_URL=mongodb://mongo:27017/pisignage
-      
-        # Die benötigte Datenbank
-        mongo:
-          image: mongo:4.4
-          container_name: pisignage-mongo
-          volumes:
-            - mongo-data:/data/db
-      
-      volumes:
-        pisignage-data:
-        mongo-data:
-      ``   
-5. Öffne die Eingabeaufforderung:
-```
-cd "z.B  C:\Users\Alexander Hauser\Documents\Pisignage-Test"
-
-docker compose up -d
-```
-6. Der Server sieht man nun in Docker Desktop unter Containers
-7. Mit http://localhost:3000 kann sich auf das PiSignage Dashboard verbinden
+3. Raspberry Pi Imager öffnen und unter OS "Eigenes Image" auwählen
+4. Das zuvor heruntergelade Image auf die SD-Karte schreiben
+5. Sd-Karte in den Pi stecken und botten lassen.
+6. Es sollte nun auf dem angeschlossenem Bild des Pi´s angezeigt werden welche ID er hat.
+7. Öffnen sie auf ihrem Pc den Browser und geben sie "www.pisognage.com" ein und loggen sie sich ein
+8. Jetzt können sie in ihrem Dashboard, unter Player auf "Einen Player registrieren" drücken
+9. Mit der ID auf dem Bildschrim des Pi´s, können sie den Player hinzufügen
+10. Dann unter Inhalte die gewünschten Inhalte hochladen (Bilder, Videos, etc.)
+11. Diese Anschließen zu einer Wiedergabeliste hinzufügen
+12. Und diese wiederum zu einer Gruppe hinzufügen
+13. Die jeweilige Gruppe Können sie jetzt bereitstellen und ihr Inhalt wird auf ihrem Player angezeigt
 
 ---
 
@@ -230,11 +203,12 @@ Im Rahmen meines Praktikumsprojekts zur Einrichtung eines Digital-Signage-System
 #### Hintergrund zur Hardware-Schutzschaltung:
 Der Raspberry Pi besitzt eine integrierte, selbstrücksetzende Schmelzsicherung (eine sogenannte **Polyfuse**). Bei einer gravierenden Unterspannung oder abrupten Spannungsspitzen (wie beim Einbrechen meines zweiten Netzteils) löst diese Sicherung aus, um die empfindlichen Hauptkomponenten vor dauerhaften Schäden zu schützen. Solange diese Sicherung aktiv ist, verbleibt der Pi in einem "Reset-Modus", bei dem ausschließlich die rote PWR-LED leuchtet.
 
-#### Geplante Maßnahme zur Behebung:
+#### Maßnahme zur Behebung:
 Eine solche Polyfuse benötigt nach dem Auslösen ausreichend Zeit, um vollständig abzukühlen und ihren physikalischen Widerstand wieder auf den Normalwert zu senken. Ich habe den Raspberry Pi daher komplett von der Stromversorgung getrennt. Er verbleibt nun über Nacht im absolut stromlosen Zustand.
 
-Für die nächsten Projektschritte werde ich ein offizielles Raspberry-Pi-Netzteil organisieren, welches dauerhaft stabile **5,1 V und 2,5 A** liefert. Nach der nächtlichen Regenerationsphase der Sicherung werde ich den Bootvorgang mit diesem spezifikationsgerechten Netzteil erneut durchführen.
+Zum weitern Testen der Open-Source Löungen wurde mir ein stärkerer Raspberry Pi 4 Model B zurverfügung gestellt mit dem originalem Netzteil (5.1V / 3A), um keine Leistungseinbrüche inder Stromversorgung zu haben. 
 
+--- 
 
 
 
