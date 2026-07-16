@@ -256,7 +256,7 @@ Zum weitern Testen der Open-Source Löungen wurde mir ein stärkerer Raspberry P
 | **Gehäuse & Kühlung** | Passives Alu-Gehäuse | 5x |Ein Gehäuse mit passiver Kühlung (ohne Lüfter) ist wartungsfrei und leise. | 75,- |
 | **Display-Kabel** | Micro-HDMI auf Standard-HDMI-Kabel (ca. 1m bis 2m) | 5x | Der Pi hat Micro-HDMI-Ausgänge, Fernseher haben Standard-HDMI. | 25,- |
 | **Bildschirm / TV** | 24/7 geeignete Business-Displays (z.B. von Samsung oder LG, Full HD) | 5x | Normale Consumer-TVs gehen im Dauerbetrieb (24/7) in der Produktion schnell kaputt. |  |
-| **Wandhalterung** | Flache VESA-Halterung | 5x | Um die Displays sicher an der Wand oder an Produktionsmaschinen zu befestigen. | _ |
+| **Wandhalterung** | Flache VESA-Halterung | 5x | Um die Displays sicher an der Wand oder an Produktionsmaschinen zu befestigen. |  |
 
 Ausgangssituation: 5x Displays
 
