@@ -3,7 +3,8 @@
 
 **Thema:** Digital Signage
 
-**Datum:** 13.07.2026
+**Datum:** 13.07.2026 - 17.07.2026
+
 
 --- 
 
