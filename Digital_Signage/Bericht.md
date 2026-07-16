@@ -146,10 +146,39 @@ docker-compose up -d
 7. Öffne die Seite des Xibo-Servers jetzt mit "http://localhost:8080"
 8. Login ist: xibo_admin Passwort ist: password
 
+##### Mit dem Terminal:
+9. Öffne den Raspberry Pi Imager und lade auf die SD-Karte das Pi OS (Legacy, 64-Bit) Bookworm
+10. Botte den Pi jetzt mit der SD-Karte
+
+#####  Mit Android:
+9. Öffne den Raspberry Pi Imager und lade auf die SD-Karte unter Freemium and paid-for OS "Android by emteria". 
+10. Botte den Pi jetzt mit der SD-Karte
+
+
 
 
 #### Probleme während der Inbetriebnahme der Player/Clients
 
+Bei der Inbetriebnahme des offiziellen Linux-basierten Xibo-Players traten gravierende Probleme auf. Nach dem Starten der Anwendung kam es zu einem ununterbrochenen Hin- und Herspringen des Anmeldefensters. 
+
+Was wurde durchgeführt, damit man es zum laufen bekommen könnte:
+* Das manuelle Erzwingen des älteren X11-Grafikprotokolls
+* Das Abschalten der Chromium-Sandbox und der GPU-Beschleunigung
+* Die Modifikation der Konfigurationsdateien über das Terminal
+
+#### Ursachenanalyse:
+Die anschließende tiefergehende Systemanalyse ergab zwei wesentliche Gründe, weshalb Xibo in dieser Konstellation keine praxistaugliche Option darstellt:
+
+#### 1. Inkompatibilität der CPU-Architektur
+Der offizielle Linux-Player von Xibo basiert auf einer x86_64-Architektur (Intel/AMD) und schließt ARM-Prozessoren, wie sie auf dem Raspberry Pi verbaut sind, aus. Versuche, die Software über inoffizielle Umwege auf Debian 12 (Bookworm) zu betreiben, scheitern an der Inkompatibilität mit dem modernen Wayland-Fenstermanagerk des Betriebssystems, was das unkontrollierte Flackern der Benutzeroberfläche auslöst.
+
+#### 2. Lizenzbarrieren beim Android-Workaround
+Ein alternativer Lösungsansatz über das Android-Betriebssystem emteria.OS auf dem Raspberry Pi ermöglichte zwar technisch die erfolgreiche Installation der Xibo-Android-App, scheiterte jedoch daran das man für die Lizenz zahlen müsste. Im Gegensatz zu den Desktop-Clients für Windows und Linux ist der Android-Player von Xibo ein rein kommerzielles Produkt. Nach Ablauf einer 14-tägigen Testphase entstehen pro Gerät laufende Lizenzgebühren.
+
+#### Fazit & Ausblick
+
+Ergebnis der Evaluation:  
+Da das Ziel des Projekts eine dauerhaft kostenfreie Open-Source-Lösung auf Raspberry-Pi-Basis war, erwies sich Xibo für dieses Szenario als ungeeignet. 
 
 ---
 
