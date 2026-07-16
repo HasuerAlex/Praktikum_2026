@@ -16,6 +16,7 @@
   Wartbarkeit. 
 - Am Ende eine kurze Empfehlung abgeben, welche Lösung für einen Pilotbetrieb am sinnvollsten wäre. 
  
+--- 
 
 ### Anthias 
 
