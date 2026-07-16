@@ -16,7 +16,7 @@
 - Am Ende eine kurze Empfehlung abgeben, welche Lösung für einen Pilotbetrieb am sinnvollsten wäre. 
  
 
-### Anthias (ehemals Screenly OSE)
+### Anthias 
 
 - Das Konzept: Es ist zu 100 % kostenlos und quelloffen. Im Gegensatz zur kostenpflichtigen Cloud-Version von Screenly verwaltest du jedes Gerät einzeln über eine lokale Weboberfläche.
 
@@ -66,29 +66,29 @@
 - Ergebnis: MP4-Videos: Lokale Videodateien im MP4-Format wurden in Full-HD-Auflösung ($1080\text{p}$) absolut flüssig und ohne sichtbare Framedrops oder Ruckler abgespielt.
   - Webseiten: Die Darstellung von Web-Assets über die integrierte Kiosk-Browser-Engine verlief plattformkonform.
 
-- Einschränkung für die Praxis: Bei extrem JavaScript-lastigen Webseiten oder komplexen Animationen stieß die CPU des älteren Raspberry Pi 3 vereinzelt an ihre Leistungsgrenzen, was zu verzögerten Ladezeiten führte. Für Standard-Websites und Dashboards ist die Performance jedoch             vollkommen ausreichend.
+- Einschränkung für die Praxis: Bei extrem JavaScript-lastigen Webseiten oder komplexen Animationen stieß die CPU des Raspberry Pi 4 vereinzelt an ihre Leistungsgrenzen, was zu verzögerten Ladezeiten führte. Für Standard-Websites und Dashboards ist die Performance jedoch             vollkommen ausreichend.
 
 ##### Härtetest (Simulierter Stromausfall & Ausfallsicherheit)
 - Kriterium: Simulation eines unvorhergesehenen Spannungsabfalls durch abruptes Ziehen des Netzsteckers im laufenden Betrieb. Überprüfung, ob das System nach der Stromwiederkehr selbstständig und fehlerfrei in den Kiosk-Modus zurückkehrt.
 
-- Ergebnis: Nach dem Trennen und anschließenden Wiederverbinden der Stromversorgung startete das zugrundeliegende Linux-Betriebssystem autonom. Anthias initialisierte sämtliche Hintergrunddienste ordnungsgemäß, rief die lokal gespeicherte Playlist ab und startete die Wiedergabe des          Contents vollautomatisch. Es traten keine korrupten Dateisystemfehler auf der MicroSD-Karte auf, und es war keinerlei manueller Eingriff (z. B. per Tastatur oder SSH) erforderlich.
+- Ergebnis: Nach dem Trennen und anschließenden Wiederverbinden der Stromversorgung startete das zugrundeliegende Linux-Betriebssystem autonom. Anthias initialisierte sämtliche Hintergrunddienste ordnungsgemäß, rief die lokal gespeicherte Playlist ab und startete die Wiedergabe des          Contents vollautomatisch. Es war keinerlei manueller Eingriff erforderlich.
 
 - Fazit: Das System beweist eine hohe Resilienz gegenüber netzseitigen Störungen und ist für den wartungsfreien Kiosk-Dauerbetrieb im Unternehmen qualifiziert.
 
 --- 
 
-### Xibo (Self-Hosted CMS + Open-Source Linux Player)
+### Xibo
 
 - Das Konzept: Xibo trennt strikt zwischen dem Server (CMS), auf dem du die Inhalte verwaltest, und den Playern (Clients), die am Bildschirm hängen. Der Server wird via Docker auf einem PC/Server installiert.
   Für den Raspberry Pi gibt es mittlerweile einen offiziellen, kostenlosen Linux-Player.
 
-- Architektur: Zentralisiert. Du verwaltest beliebig viele Bildschirme über ein einziges, mächtiges Web-Dashboard.
+- Architektur: Zentralisiert. Du verwaltest beliebig viele Bildschirme über ein einziges Web-Dashboard.
 
 - Vorteile:
 
   - Echte Zentralverwaltung: Perfekt für den professionellen Einsatz. Du kannst hunderte Player von einer einzigen Oberfläche aus steuern.
 
-  - Mächtiges Layout-Design: Du kannst den Bildschirm in Zonen unterteilen (z. B. links Video, rechts Wetter-Widget, unten Newsticker).
+  - Layout-Design: Du kannst den Bildschirm in Zonen unterteilen.
 
   - Umfangreiche Zeitplanung: Sehr detaillierte Steuerung, wann welche Kampagne läuft.
 
@@ -144,6 +144,11 @@ docker-compose up -d
 6. Jetzt kann man Docker Desktop öffnen und man sieht den Xibo Server
 7. Öffne die Seite des Xibo-Servers jetzt mit "http://localhost:8080"
 8. Login ist: xibo_admin Passwort ist: password
+
+
+
+#### Probleme während der Inbetriebnahme der Player/Clients
+
 
 ---
 
