@@ -220,8 +220,6 @@ Nachteile:
 
 ## Fehleranalyse und Problembehebung: Instabilitäten der Stromversorgung
 
-Im Rahmen meines Praktikumsprojekts zur Einrichtung eines Digital-Signage-Systems auf einem Raspberry Pi 3 (RPi3) traten kritische Probleme bei der Stromversorgung auf. Diese führten im Verlauf der Inbetriebnahme zu einem temporären Systemausfall. Im Folgenden dokumentiere ich die beobachteten Fehlerbilder, meine durchgeführten Schritte zur Fehlerdiagnose sowie die erarbeitete Lösung.
-
 ### 1. Problembeschreibung und Fehlerbild
 
 * **Mein erster Versuch (Standard-Netzteil):** Das von mir primär verwendete Netzteil lieferte eine zu geringe elektrische Leistung. Der Raspberry Pi signalisierte dies sporadisch durch das gelbe Blitz-Symbol in der oberen rechten Ecke des Bildschirms (Under-Voltage-Warnung). Das System lief dadurch extrem instabil und stürzte wiederholt ab.
@@ -259,6 +257,11 @@ Zum weitern Testen der Open-Source Löungen wurde mir ein stärkerer Raspberry P
 | **Wandhalterung** | Flache VESA-Halterung | 5x | Um die Displays sicher an der Wand oder an Produktionsmaschinen zu befestigen. | ~250,- |
 
 Ausgangssituation: 3x Displays
+
+Links zu den Bildschirmen:
+- https://www.amazon.de/iiyama-Prolite-LH9252UWS-B1AG-Digital-Signage/dp/B0H5CC9ZWF/ref=sr_1_1?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1L5ZB2I1OU2FG&dib=eyJ2IjoiMSJ9.6ZCTl_xEsFtq37jnJACLCq9EMgRuix-0QZkrdLR-PQ4.5ASuB0P434Uk4rHHg688avWiXz99G4eZVQzxvSciy7Y&dib_tag=se&keywords=ProLite+LH9252UWS-B1AG&qid=1784265707&sprefix=prolite+lh9252uws-b1ag%2Caps%2C112&sr=8-1
+  
+- https://www.visunext.at/p/samsung-qb24c-display-1000030036/?gad_source=1&gad_campaignid=23590963875&gbraid=0AAAAADupoO18h5ydyPUFBdvSMfByrRwAW&gclid=Cj0KCQjwguLSBhDLARIsAH-yPrHi0RnYyJ4DRgL2N4zTy_xdlYGWTBxfMUkTNp_kfeyYy7fVOYZ7HnQaAg8mEALw_wcB
 
 
 
