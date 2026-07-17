@@ -250,15 +250,15 @@ Zum weitern Testen der Open-Source Löungen wurde mir ein stärkerer Raspberry P
 
 | Komponente | Spezifikation / Empfehlung | Menge | Warum wichtig? | Preis |
 | :--- | :--- | :---: | :--- | :--- |
-| **Raspberry Pi** | Raspberry Pi 4 (4GB) oder Pi 5 (4GB) | 5x | Das Gehirn hinter dem Bildschirm. 4GB RAM sind wichtig für flüssige Web-Dashboards. | 575 - 675,- |
-| **Netzteil** | Offizielles USB-C Netzteil | 5x | Billige Netzteile führen bei Pis unter Last schnell zu Abstürzen oder Performance-Drosselung. | 60 - 75,- |
-| **Speicherkarte** | 32 GB MicroSD (z.B. SanDisk Extreme) | 5x | Schnelles Schreiben-/Leseen verhindern Ruckler im System. | 80,- |
-| **Gehäuse & Kühlung** | Passives Alu-Gehäuse | 5x |Ein Gehäuse mit passiver Kühlung (ohne Lüfter) ist wartungsfrei und leise. | 75,- |
-| **Display-Kabel** | Micro-HDMI auf Standard-HDMI-Kabel (ca. 1m bis 2m) | 5x | Der Pi hat Micro-HDMI-Ausgänge, Fernseher haben Standard-HDMI. | 25,- |
-| **Bildschirm / TV** | 24/7 geeignete Business-Displays (z.B. von Samsung oder LG, Full HD) | 5x | Normale Consumer-TVs gehen im Dauerbetrieb (24/7) in der Produktion schnell kaputt. |  |
-| **Wandhalterung** | Flache VESA-Halterung | 5x | Um die Displays sicher an der Wand oder an Produktionsmaschinen zu befestigen. |  |
+| **Raspberry Pi** | Raspberry Pi 4 (4GB) oder Pi 5 (4GB) | 3x | Das Gehirn hinter dem Bildschirm. 4GB RAM sind wichtig für flüssige Web-Dashboards. | ~345 - 400,- |
+| **Netzteil** | Offizielles USB-C Netzteil | 3x | Billige Netzteile führen bei Pis unter Last schnell zu Abstürzen oder Performance-Drosselung. | ~45,- |
+| **Speicherkarte** | 32 GB MicroSD (z.B. SanDisk Extreme) | 3x | Schnelles Schreiben-/Leseen verhindern Ruckler im System. | ~50,- |
+| **Gehäuse & Kühlung** | Passives Alu-Gehäuse | 3x |Ein Gehäuse mit passiver Kühlung (ohne Lüfter) ist wartungsfrei und leise. | ~50,- |
+| **Display-Kabel** | Micro-HDMI auf Standard-HDMI-Kabel (ca. 1m bis 2m) | 3x | Der Pi hat Micro-HDMI-Ausgänge, Fernseher haben Standard-HDMI. | ~15,- |
+| **Bildschirm / TV** | 24/7 geeignete Business-Displays | 3x | Normale TVs gehen im Dauerbetrieb (24/7) in der Produktion schnell kaputt. | ~6.800,- |
+| **Wandhalterung** | Flache VESA-Halterung | 5x | Um die Displays sicher an der Wand oder an Produktionsmaschinen zu befestigen. | ~250,- |
 
-Ausgangssituation: 5x Displays
+Ausgangssituation: 3x Displays
 
 
 
