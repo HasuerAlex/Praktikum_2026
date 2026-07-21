@@ -304,7 +304,24 @@ Eine solche Polyfuse benötigt nach dem Auslösen ausreichend Zeit, um vollstän
 
 Zum weitern Testen der Open-Source Löungen wurde mir ein stärkerer Raspberry Pi 4 Model B zurverfügung gestellt mit dem originalem Netzteil (5.1V / 3A), um keine Leistungseinbrüche inder Stromversorgung zu haben. 
 
---- 
+---
+
+# Empfehlung für unser Digital Signage Projekt - PiSignage
+
+### Warum piSignage die beste Wahl ist:
+
+1. **Super einfache Verwaltung:** Bei Anthias müsste man im Grunde jeden Pi einzeln ansteuern. Xibo hingegen ist extrem kompliziert und überladen. PiSignage hat ein einfaches, zentrales Dashboard, über das man alle Screens gleichzeitig im Blick hat und steuern kann.
+
+2. **Perfekt für Pläne:** Es sollen hauptsächlich Produktionspläne und Webseiten anzeigen. PiSignage macht das Einbinden von Links extrem einfach, lädt die Seiten automatisch neu und blended störende Mauspfeile oder Menüs gut aus.
+
+3. **Läuft wie geschmiert auf dem Pi:** Die Software ist genau für den Raspberry Pi gemacht. Das System ist schlank, verbraucht kaum Ressourcen und läuft sehr stabil.
+
+### Was ist mit den Kosten?
+
+* Der Player auf dem Pi ist kostenlos.
+* Der Server läuft lokal auf einem RPi und verursacht daher auch keine Kosten.
+
+---
 
 #### Hardware-Planung
 
