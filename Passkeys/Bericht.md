@@ -1,7 +1,7 @@
 # Bericht Woche 2
 ---
 
-**Thema:** Digital Signage & Passkeys
+**Thema:** Passkeys
 
 **Datum:** 20.07.2026 - 24.07.2026
 
