@@ -26,9 +26,9 @@
 #### Gundertshausen 86
 - **Büro**
   - Thomas Polland
-  - Sabine Blüml
+  - 
 - **Produktion**
-
+-  
   
 ---
 
@@ -46,7 +46,7 @@
 ### Probleme die Aufgetreten sind 
 
 * **Mitarbeiter wussten ihr aktuelles Passwort nicht**  
-  * **Auswirkung:** Da für die Ersteinrichtung des Passkeys (bzw. das Hinzufügen der Sicherheitsoptionen auf Office.com) eine einmalige Anmeldung mit dem bestehenden Passwort erforderlich ist, stoppt der Prozess an dieser Stelle.  
+  * **Auswirkung:** Da für die Ersteinrichtung des Passkeys eine einmalige Anmeldung mit dem bestehenden Passwort erforderlich ist.  
   * **Lösung:** Kontakt mit Max, der mir die Passwörter geben hat.
 
 
