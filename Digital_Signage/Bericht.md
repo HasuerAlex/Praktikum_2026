@@ -183,7 +183,7 @@ Da das Ziel des Projekts eine dauerhaft kostenfreie Open-Source-Lösung auf Rasp
 
 ---
 
-#### PiSignage (Open-Source Server Community Edition)
+#### PiSignage (Open-Source Server)
 
 - Das Konzept: Es ist zu 100 % kostenlos. Die jeweiligen Screens werden über einen Zentralen Pc gesteuert.
 
@@ -194,8 +194,6 @@ Da das Ziel des Projekts eine dauerhaft kostenfreie Open-Source-Lösung auf Rasp
   - Zentrales Management gratis: Bietet eine zentrale Verwaltung für mehrere Pis, ohne Geld zu kosten.
 
   - Gute Pi-Optimierung: Unterstützt native Pi-Features wie CEC (Bildschirm über das HDMI-Kabel automatisch an-/ausschalten).
-
-Nachteile:
 
  
     
@@ -213,6 +211,70 @@ Nachteile:
 11. Diese Anschließen zu einer Wiedergabeliste hinzufügen
 12. Und diese wiederum zu einer Gruppe hinzufügen
 13. Die jeweilige Gruppe Können sie jetzt bereitstellen und ihr Inhalt wird auf ihrem Player angezeigt
+
+#### PiSignage-Serve auf Pi machen
+#### 1. Source holen
+```
+cd ~
+wget https://github.com/colloqi/pisignage-server/archive/refs/heads/master.zip -O pisignage-server.zip
+unzip pisignage-server.zip && mv pisignage-server-master pisignage-server
+cd pisignage-server
+```
+#### 2. docker-compose.yml anlegen
+```
+cat << 'EOF' > docker-compose.yml
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:4.4.18
+    container_name: pisignage-mongo
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - pisignage-net
+
+  pisignage-server:
+    build: .
+    container_name: pisignage-server
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - MONGODB_OFFLINE=mongodb://mongo:27017/pisignage-express-app
+    depends_on:
+      - mongo
+    networks:
+      - pisignage-net
+
+networks:
+  pisignage-net:
+    driver: bridge
+
+volumes:
+  mongo_data:
+EOF
+```
+#### 3. Server-Fix (Binding auf 0.0.0.0:3000)
+```
+sed -i "s/server.listen(config.port,/server.listen(3000, '0.0.0.0',/g" server.js
+```
+#### 4. Bauen & Starten
+```
+docker compose down && docker compose up -d --build
+```
+#### 5. Zugriffsdaten
+- URL: http://<RPI-IP>:3000
+- User: admin
+- Passwort: piSignage
+
+#### Short Commands
+- Status prüfen: `docker compose ps`
+- Logs ansehen: `docker logs pisignage-server --tail 50 -f`
+- Sauber ausschalten: `sudo shutdown -h now`
 
 ---
 
