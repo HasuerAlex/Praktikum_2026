@@ -16,6 +16,21 @@
 - Ziel ist sowohl praktische Benutzerunterstützung als auch ein sauber nachvollziehbarer Einführungsprozess.
  
 --- 
+### Mitarbeiter die jetzt Passkeys haben
+
+#### Gundertshausen 64
+- Carina Kummerer
+- Jens Eckhardt
+
+
+#### Gundertshausen 86
+- **Büro**
+  - Thomas Polland
+  - Sabine Blüml
+- **Produktion**
+
+  
+---
 
 ### Fragen die Aufgekommen sind
 
