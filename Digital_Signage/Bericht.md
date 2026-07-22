@@ -5,7 +5,6 @@
 
 **Datum:** 13.07.2026 - 17.07.2026
 
-
 --- 
 
 ### Aufgabenstellung 
@@ -353,7 +352,7 @@ Zum weitern Testen der Open-Source Löungen wurde mir ein stärkerer Raspberry P
 | **Gehäuse & Kühlung** | Passives Alu-Gehäuse | 3x |Ein Gehäuse mit passiver Kühlung (ohne Lüfter) ist wartungsfrei und leise. | ~50,- |
 | **Display-Kabel** | Micro-HDMI auf Standard-HDMI-Kabel (ca. 1m bis 2m) | 3x | Der Pi hat Micro-HDMI-Ausgänge, Fernseher haben Standard-HDMI. | ~15,- |
 | **Bildschirm / TV** | 24/7 geeignete Business-Displays | 3x | Normale TVs gehen im Dauerbetrieb (24/7) in der Produktion schnell kaputt. | ~6.800,- |
-| **Wandhalterung** | Flache VESA-Halterung | 5x | Um die Displays sicher an der Wand oder an Produktionsmaschinen zu befestigen. | ~250,- |
+| **Wandhalterung** | Flache VESA-Halterung | 3x | Um die Displays sicher an der Wand oder an Produktionsmaschinen zu befestigen. | ~250,- |
 
 Ausgangssituation: 3x Displays
 
