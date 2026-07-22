@@ -1,10 +1,9 @@
-# Bericht Woche 2
+# Bericht Projekt 2
 ---
 
 **Thema:** Passkeys
 
-**Datum:** 20.07.2026 - 24.07.2026
-
+**Datum:** 20.07.2026 - 27.07.2026
 
 --- 
 
