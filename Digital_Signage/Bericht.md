@@ -1,4 +1,4 @@
-# Bericht Woche 1
+# Bericht Projekt 1
 ---
 
 **Thema:** Digital Signage
