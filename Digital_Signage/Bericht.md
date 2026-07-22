@@ -276,6 +276,26 @@ docker compose down && docker compose up -d --build
 - Logs ansehen: `docker logs pisignage-server --tail 50 -f`
 - Sauber ausschalten: `sudo shutdown -h now`
 
+#### Planner von einer VM Streamen 
+- Max seine Idee war, um den Planner Störung laufen zu lassen, das ganze auf einer VM laufen zu lassen und diese dann zu Streamen. Dieser Stream soll auf den Displays gezeigt werden.
+
+1. VM Workstation Pro herunterladen
+2. Windows 10 Iso herunterladen
+3. VM mit der heruntergeladenen Iso einrichten
+4. Es sollte nach dem ersten Starten ein Fenster kommen mit den verschieden Windows Varianten, wähle Windows 10 Pro
+5. In der VM beim einrichten des Windows, wählt man Offline Benutzer
+6. Wenn die VM mit dem fertigen Windows läuft, lade dir VLC herunter.
+7. Ist das geschafft, richte den Stream ein.
+  - Strg + S, wähle Desktop und 15FPS
+  - Klicke solange auf weiter bis auswählen sollst Http, rstp, usw.
+  - Wähle Http und klicke auf hinzufügen
+  - In diesen Fenster gib den Port 8080 an und schreibe in die Zeile darunter /stream
+  - Klicke auf weiter und wähle ...
+  - Dann Klicke auf streamen.
+8. Jetzt läuft der Stream du musst jetzt dich auf deinem Pc in das PiSignage Dashboard einloggen
+9. Im Dashboard angekommen füge unter Assets eine neuse mit dem Button Streams hinzu.
+10. Wenn du nun das veränderete hochlädst sollte der Stream auf dem Display laufen, mit einer kleinen Verzögerung 
+
 ---
 
 ### Probleme während des Praxis Test
