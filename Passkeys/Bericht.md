@@ -20,8 +20,8 @@
 #### Gundertshausen 64
 - Carina Kummerer
 - Jens Eckhardt
-- Selim Hasanovic
-- Markus Vordermaier
+- Selim Hasanovic (Urlaub)
+- Markus Vordermaier (Urlaub)
 
 
 #### Gundertshausen 86
