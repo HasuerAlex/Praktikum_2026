@@ -20,16 +20,22 @@
 #### Gundertshausen 64
 - Carina Kummerer
 - Jens Eckhardt
+- Selim Hasanovic
+- Markus Vordermaier
 
 
 #### Gundertshausen 86
 - **Büro**
   - Thomas Polland
-  - Sabine Blüml
   - Christine Gerstlohner
+  - **Sabine Blüml** (kein Passkey nur Authenticator, wegen zu altem Android auf dem Handy)
+  - Sophie Wolfsöldner (Urlaub)
 - **Produktion**
--  
-  
+  - Fritz Bermanschlager
+  - Christian Buchmayr 
+  - Elke Krassnitzer (Urlaub)
+
+
 ---
 
 ### Fragen die Aufgekommen sind
@@ -48,7 +54,8 @@
 * **Mitarbeiter wussten ihr aktuelles Passwort nicht**  
   * **Auswirkung:** Da für die Ersteinrichtung des Passkeys eine einmalige Anmeldung mit dem bestehenden Passwort erforderlich ist.  
   * **Lösung:** Kontakt mit Max, der mir die Passwörter geben hat.
- 
+* **Zu alte Android Version**
+  * Mitarbeiterin konnte sich nicht die neueste Version von Android installieren, was dazu führt das man hier keinen Passkey ertsellen konnte. 
 ---
 
 # Kurzanleitung: Microsoft Authenticator & Passkey einrichten
