@@ -15,6 +15,7 @@
 - Ziel ist sowohl praktische Benutzerunterstützung als auch ein sauber nachvollziehbarer Einführungsprozess.
  
 --- 
+
 ### Mitarbeiter die jetzt Passkeys haben
 
 #### Gundertshausen 64
@@ -84,5 +85,5 @@ Bitte warten Sie nach dem Verknüpfen ca. 5 Minuten, bevor Sie mit Teil 2 fortfa
 1. **App öffnen:** Öffnen Sie die **Microsoft Authenticator App** auf Ihrem Smartphone.
 2. **Konto auswählen:** Tippen Sie auf Ihre Firmen-E-Mail-Adresse.
 3. **Passkey erstellen:** Tippen Sie auf den Punkt **Passkey einrichten**.
-4. **Bestätigen:** Bestätigen Sie die Einrichtung wie gewohnt mit Ihrer Smartphone-Entsperrung (z. B. per Gesichtserkennung/Face ID, Fingerabdruck oder Handy-PIN).
+4. **Bestätigen:** Bestätigen Sie die Einrichtung wie gewohnt mit Ihrer Smartphone-Entsperrung.
 
