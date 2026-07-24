@@ -66,10 +66,10 @@
 ### Teil 1: Microsoft Authenticator am Computer einrichten
 
 1. **Website öffnen:** Öffnen Sie das Internet (z. B. Microsoft Edge oder Google Chrome) und gehen Sie auf **[Office.com](https://www.office.com)**. Melden Sie sich mit Ihren gewohnten Firmendaten an.
-2. **Konto aufrufen:** Klicken Sie ganz unten rechts auf Ihr Profilbild (oder Ihre Initialen) und wählen Sie **Konto anzeigen**.
+2. **Konto aufrufen:** Klicken Sie ganz unten rechts auf Ihr Profilbild und wählen Sie **Konto anzeigen**.
 3. **Sicherheit aufrufen:** Klicken Sie im Menü auf der linken Seite auf **Sicherheitsinformationen**.
 4. **Methode hinzufügen:** 
-   * Klicken Sie auf den Knopf **+ Anmeldemethode hinzufügen**.
+   * Klicken Sie auf den Knopf **Anmeldemethode hinzufügen**.
    * Wählen Sie im Menü **Authenticator-App** aus und klicken Sie auf *Hinzufügen*.
 5. **Mit dem Handy verknüpfen:** 
    * Auf Ihrem PC-Bildschirm erscheint nun ein **QR-Code**.
@@ -77,7 +77,7 @@
    * Tippen Sie in der App oben rechts auf das **+ (Plus-Symbol)** und wählen Sie **Geschäfts- oder Schulkonto** -> **QR-Code scannen**.
    * Scannen Sie den Code vom PC-Bildschirm ab – fertig!
   
-### WICHTIGER ZWISCHENSCHRITT (5 Minuten Pause):
+### WICHTIGER ZWISCHENSCHRITT:
 Bitte warten Sie nach dem Verknüpfen ca. 5 Minuten, bevor Sie mit Teil 2 fortfahren. Das System im Hintergrund benötigt diesen Moment, um Ihre Freigabe zu verarbeiten.
 
 ### Teil 2: Passkey auf dem Smartphone aktivieren
